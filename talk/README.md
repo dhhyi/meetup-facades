@@ -1,7 +1,11 @@
 # Title
 
-- Lean Component Composition with Facades
+## Winner!
 - Facades - The best Layer of your Angular Application
+
+## Other Ideas
+
+- Lean Component Composition with Facades
 - Using Facades for Component Composition in Angular Applications
 
 # Abstract
@@ -51,7 +55,7 @@ Danilo works as a Software Developer for the e-commerce company Intershop in Thu
   - meld both tracks together
 - consistent interface for UI development
 - agnostic to state management
-  - state management can be introduced progressively if needed -> link to talk
+  - state management can be introduced progressively if needed -> [Link to Talk](https://www.youtube.com/watch?v=F-1V43rNm2E)
 - logic can be composed into libraries
 
 ## Why not use Facades?
@@ -71,12 +75,12 @@ Danilo works as a Software Developer for the e-commerce company Intershop in Thu
 - with Facades:
   - more logic moving from components into facades
   - Components are pure Angular & RxJS
-- -> Link to Blog
+- -> [Link to Blog](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
 - When to load data?
   - previously: load Actions in Components / Effects based on routing
   - now: on subscription in facade.
-  - -> Link to Blog Entry
+  - -> [Link to Blog](https://dev.to/jonrimmer/where-to-initiate-data-load-in-ngrx-358l#)
 
 ## Demo with simple Application
 
