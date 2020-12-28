@@ -10,8 +10,8 @@
 
 # Abstract
 
-Facades are services in Angular Applications decoupling view layers from application logic.
-Especially in large enterprise applications facades can be used to easily divide between logic and view related development tasks.
+Facades are services in Angular applications decoupling the view layer from application logic.
+Especially in large enterprise applications facades can be used to divide development tasks related to logic (state management, REST API communication, ...) and view (layout, styling, ...).
 
 In this talk we critically examine possibilities and disadvantages of introducing yet another layer into our Angular applications.
 
