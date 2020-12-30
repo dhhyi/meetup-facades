@@ -19,6 +19,9 @@ In this talk we critically examine possibilities and disadvantages of introducin
 
 - Angular
 
+
+
+
 # Level:
 
 [ ] Beginner
