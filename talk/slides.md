@@ -13,13 +13,15 @@ class: big
 
 1. What are Facades?
 
-2. When to use Facades?
+2. What can Facades do for you?
 
-3. When **not** to use Facades?
+3. When to use Facades?
 
-4. Lessons Learned from a Project
+4. When **not** to use Facades?
 
-5. Introducing Context-Facades
+5. Lessons Learned from a Project
+
+6. Introducing Context-Facades
 
 ---
 
@@ -76,3 +78,46 @@ class: large
 # What are Facades? (figuratively)
 
 - Walls
+
+---
+
+class: large
+
+# What are Facades? (exemplary)
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Book } from 'models';
+
+@Injectable({ providedIn: 'root' })
+export class BookFacade {
+
+  /** stream for all books */
+  books$: Observable<Book[]> = ...
+
+  /** stream for a single book */
+  book$(isbn: string): Observable<Book> {
+    ...
+  }
+
+  /** add to cart interaction */
+  addToCart(isbn: string, quantity: number): void {
+    ...
+  }
+}
+```
+
+---
+
+class: middle, center
+
+# What can Facades do for you?
+
+--
+<br/>
+
+## Facades provide an
+
+## **agnostic** and **cleanly decoupled**
+
+## Interface to the Application Logic
