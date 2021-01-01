@@ -44,3 +44,31 @@ class: large
 * Java/C++ Background ~8y
 
 * Angular since 3y @ .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg)]
+
+---
+class: middle, center
+# What are Facades?
+
+---
+class: large
+# What are Facades? (technically)
+
+* Angular Services (`@Injectable`)
+
+* Global (`providedIn: 'root'`)
+
+* Singletons
+
+* provide API for View Layer
+
+  * access data synchronously / asynchronously
+
+  * trigger actions
+
+---
+class: large
+# What are Facades? (figuratively)
+
+* Walls
+
+* 

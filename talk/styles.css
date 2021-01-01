@@ -3,8 +3,8 @@
     background: linear-gradient(130deg, rgba(129,129,129,1) 0%, rgba(214,214,223,1) 13%, rgba(255,255,255,1) 100%);
 }
 
-.big p, .big li { font-size: xx-large; }
-.large p, .large li { font-size: larger; }
+.big p, .big li::marker { font-size: xx-large; }
+.large p, .large li::marker { font-size: larger; }
 
 .clean .remark-slide-number {
     display: none;
