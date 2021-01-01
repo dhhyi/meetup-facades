@@ -16,7 +16,7 @@ class: big
 
 3. When **not** to use Facades?
    
-4. 
+4. Lessons Learned from a Project
 
 ---
 
