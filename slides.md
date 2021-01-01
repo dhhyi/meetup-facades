@@ -1,4 +1,5 @@
-class: center, middle
+class: center, middle, clean
+count: false
 
 # Facades
 
