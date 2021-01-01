@@ -1,6 +1,7 @@
 # Title
 
 ## Winner!
+
 - Facades - The best Layer of your Angular Application
 
 ## Other Ideas
@@ -19,9 +20,6 @@ In this talk we critically examine possibilities and disadvantages of introducin
 
 - Angular
 
-
-
-
 # Level:
 
 [ ] Beginner
@@ -29,6 +27,7 @@ In this talk we critically examine possibilities and disadvantages of introducin
 [ ] Advanced
 
 # About the Author
+
 - Foto
 
 Danilo works as a Software Developer for the e-commerce company Intershop in Thuringia, located in the green heart of Germany. Just as he started working there, the decision was made to launch the development for a new storefront based on Angular. Even though he never worked with Angular before (his background is mainly Java and some C++), it turned into one of the best love stories of the current decade. Nowadays, whenever he is not working on the project, he likes spending time improving his cooking skills or ~~chilling at local pubs while~~ reading about psychology.
@@ -71,7 +70,6 @@ Danilo works as a Software Developer for the e-commerce company Intershop in Thu
 - Customers mainly customize view layer (sometimes heavily)
 - Logic layer mostly untouched
 - Most bugs reside in logic -> Fix can be provided by us and easily consumed by customers
-  
 - We tried using Smart/Dumb Components, but:
   - Layouting was still not easy to customize
   - Application logic was "bleeding" into components
@@ -90,10 +88,12 @@ Danilo works as a Software Developer for the e-commerce company Intershop in Thu
 ## Introducing Context Facades (maybe just scrape topic)
 
 - Some components exist in specific context only
+
   - "Add To Cart" button relates to a simple product
 
 - Context Facade saves data specific to the context (mostly just id of object) and delegates to global facade
 - Context Facades must be provided locally
+
   - Component Injectors (via @Component)
   - Element Injectors (via Directives)
 
