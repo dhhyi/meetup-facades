@@ -16,7 +16,7 @@ class: big
 2. When to use Facades?
 
 3. When **not** to use Facades?
-   
+
 4. Lessons Learned from a Project
 
 5. Introducing Context-Facades
@@ -41,34 +41,38 @@ class: large
 
 <br/>
 
-* Java/C++ Background ~8y
+- Java/C++ Background ~8y
 
-* Angular since 3y @ .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg)]
+- Angular since 3y @ .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg)]
 
 ---
+
 class: middle, center
+
 # What are Facades?
 
 ---
+
 class: large
+
 # What are Facades? (technically)
 
-* Angular Services (`@Injectable`)
+- Angular Services (`@Injectable`)
 
-* Global (`providedIn: 'root'`)
+- Global (`providedIn: 'root'`)
 
-* Singletons
+- Singletons
 
-* provide API for View Layer
+- provide API for View Layer
 
-  * access data synchronously / asynchronously
+  - access data synchronously / asynchronously
 
-  * trigger actions
+  - trigger actions
 
 ---
+
 class: large
+
 # What are Facades? (figuratively)
 
-* Walls
-
-* 
+- Walls

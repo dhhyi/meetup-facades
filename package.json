@@ -1,0 +1,33 @@
+{
+  "name": "meetup-facades",
+  "version": "1.0.0",
+  "description": "Facades - The best Layer of your Angular Application",
+  "scripts": {
+    "format": "prettier --write .",
+    "talk": "http-server -c-1 talk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhhyi/meetup-facades.git"
+  },
+  "author": "Danilo Hoffmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhhyi/meetup-facades/issues"
+  },
+  "homepage": "https://dhhyi.github.io/meetup-facades",
+  "devDependencies": {
+    "http-server": "*",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "prettier": "*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.*": "prettier --write"
+  }
+}
