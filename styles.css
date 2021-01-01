@@ -1,3 +1,19 @@
+body {
+  font-family: "Droid Serif";
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Yanone Kaffeesatz";
+  font-weight: normal;
+}
+
+.remark-code,
+.remark-inline-code {
+  font-family: "Ubuntu Mono";
+}
+
 .remark-slide-content {
   background: rgb(129, 129, 129);
   background: linear-gradient(
@@ -12,6 +28,7 @@
 .big li::marker {
   font-size: xx-large;
 }
+
 .large p,
 .large li::marker {
   font-size: larger;
@@ -35,4 +52,21 @@
 .icon a:visited {
   color: black;
   text-decoration: none;
+}
+
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type,
+.left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
 }
