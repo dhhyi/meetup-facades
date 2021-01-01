@@ -1,0 +1,17 @@
+.big p, .big li { font-size: xx-large; }
+.large p, .large li { font-size: larger; }
+
+.avartar > img {
+    border-radius: 50%;
+    float: right;
+}
+
+.icon img {
+    height: 1.2em;
+    vertical-align: middle;
+}
+
+.icon a, .icon a:visited {
+    color: black;
+    text-decoration: none;
+}
