@@ -1,7 +1,5 @@
 remarkConfig:
-  highlightStyle: monokai
-  highlightLanguage: remark
-  highlightLines: true
+  highlightStyle: tomorrow-night-eighties
 css: |
   @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
   @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);

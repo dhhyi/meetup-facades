@@ -121,3 +121,139 @@ class: middle, center
 ## **agnostic** and **cleanly decoupled**
 
 ## Interface to the Application Logic
+
+---
+
+# Using NgRx directly
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Observable } from '@angular/core';
+import { Book } from 'models';
+
+import { Store, select } from '@ngrx/store';
+import { getBook } from 'store/books/selectors';
+import { loadBook, addToCart } from 'store/books/actions';
+
+@Component(...)
+export class BookDetailComponent implements OnInit {
+  @Input() isbn: string;
+
+  book$: Observable<Book>;
+
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(loadBook(this.isbn));
+    this.book$ = this.store.pipe(select(getBook, { isbn: this.isbn }))
+  }
+
+  addToCart(quantity: number) {
+    this.store.dispatch(addToCart(this.isbn, quantity));
+  }
+}
+```
+
+---
+
+# Using Facades - Component
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Observable } from '@angular/core';
+import { Book } from 'models';
+
+import { BooksFacade } from 'facades';
+
+@Component(...)
+export class BookDetailComponent implements OnInit {
+  @Input() isbn: string;
+
+  book$: Observable<Book>;
+
+  constructor(private facade: BooksFacade) {}
+
+  ngOnInit() {
+    this.book$ = this.facade.book$(this.isbn)
+  }
+
+  addToCart(quantity: number) {
+    this.facade.addToCart(this.isbn, quantity);
+  }
+}
+```
+
+---
+
+# Using Facades - Facade
+
+```typescript
+import { Store, select } from "@ngrx/store";
+import { getBook } from "store/books/selectors";
+import { loadBook, addToCart } from "store/books/actions";
+
+@Injectable({ providedIn: "root" })
+export class BooksFacade {
+  constructor(private store: Store) {}
+
+  book$(isbn: string) {
+    this.store.dispatch(loadBook(isbn));
+    return this.store.pipe(select(getBook, { isbn }));
+  }
+
+  addToCart(isbn: string, quantity: number) {
+    this.store.dispatch(addToCart(isbn, quantity));
+  }
+}
+```
+
+---
+
+class: large
+
+# Advantages using Facades
+
+- Cleanly Decoupled
+
+  - Components use Angular, RxJS and Facades
+
+  - State management behind Facades
+
+--
+
+    :+1: Tackle Knowledge Gaps
+
+    :+1: Move intermediate logic from Components into Facades
+
+---
+
+class: large
+
+# Advantages using Facades
+
+- Agnostic
+
+  - Development can be split into Component + State Management
+
+  - Refactorings don't impact Components
+
+---
+
+class: large
+
+# Agnostic Interface
+
+.w50[![schalter](https://www.capital.de/wp-content/uploads/2014/03/bankschalter_dpa-620x349.png)]
+.w50[![atm](https://avant-garde.com.cy/sites/default/files/styles/media_image/public/2020-08/atm-2.jpg?h=c46fd5b3&itok=36Oh0HWq)]
+
+- provide credentials to bank account
+
+- extract money
+
+- get feedback about balance
+
+---
+
+class: middle, center
+
+<iframe width="700" height="500" src="https://www.youtube.com/embed/Hyvn9R4wcLc?controls=1&amp;start=0&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

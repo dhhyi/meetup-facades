@@ -54,6 +54,10 @@ h3 {
   text-decoration: none;
 }
 
+.w50 img {
+  width: 49%;
+}
+
 /* Two-column layout */
 .left-column {
   color: #777;
