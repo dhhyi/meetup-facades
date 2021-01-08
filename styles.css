@@ -57,6 +57,12 @@ h3 {
   vertical-align: middle;
 }
 
+a,
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
 .icon a,
 .icon a:visited {
   color: black;
@@ -70,6 +76,8 @@ h3 {
 .fit img {
   height: 500px;
 }
+
+// https://stackoverflow.com/a/43806724/13001898
 .img-overlay-wrap {
   position: relative;
   display: inline-block; /* <= shrinks container to image size */
