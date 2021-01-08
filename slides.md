@@ -221,9 +221,9 @@ class: large
 
 --
 
-    :+1: Tackle Knowledge Gaps
+    👍 Tackle knowledge gaps
 
-    :+1: Move intermediate logic from Components into Facades
+    👍 Move intermediate logic from Components into Facades
 
 ---
 
@@ -236,6 +236,14 @@ class: large
   - Development can be split into Component + State Management
 
   - Refactorings don't impact Components
+
+---
+
+class: big, center, middle
+
+# Live Demo
+
+[https://stackblitz.com/github/dhhyi/ngrx-data-views/tree/memoized-data-views](https://stackblitz.com/github/dhhyi/ngrx-data-views/tree/memoized-data-views?file=src%2Fapp%2Fstore%2Fbook-view%2Findex.ts)
 
 ---
 
