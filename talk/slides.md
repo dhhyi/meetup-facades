@@ -381,4 +381,8 @@ class: middle, center
 
 # Thank You!
 
-## ❤️ 💬 ✉️
+## ⭐ ❤️ 💬 ✉️
+
+### slides available at
+
+## https://github.com/dhhyi/meetup-facades
