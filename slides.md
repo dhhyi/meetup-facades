@@ -59,11 +59,13 @@ class: large
 
 # What are Facades? (technically)
 
-- Angular Services (`@Injectable`)
-
-- Global (`providedIn: 'root'`)
-
 - Singletons
+
+  - Angular Services (`@Injectable`)
+
+  - Globally available (`providedIn: 'root'`)
+
+--
 
 - provide API for View Layer
 
@@ -77,7 +79,21 @@ class: large
 
 # What are Facades? (figuratively)
 
-- Walls
+- Walls providing switches, displays, taps
+
+  - switches → trigger interactions
+
+  - displays → receive data (synchronously)
+
+  - taps → receive data as stream (asynchronously)
+
+--
+
+- Examples:
+  - Light switch
+  - Tap for water
+  - Clock
+  - Alarm
 
 ---
 
@@ -87,6 +103,7 @@ class: large
 
 ```typescript
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from 'models';
 
 @Injectable({ providedIn: 'root' })
@@ -109,6 +126,52 @@ export class BookFacade {
 
 ---
 
+class: center, left-heading
+
+# What are Facades? (visually)
+
+.img-overlay-wrap[
+<img src="https://ngrx.io/generated/images/guide/store/state-management-lifecycle.png"/>
+]
+
+---
+
+class: center, left-heading
+
+# What are Facades? (visually)
+
+.img-overlay-wrap[
+<img src="https://ngrx.io/generated/images/guide/store/state-management-lifecycle.png"/>
+<svg viewBox="0 0 500 300">
+<line x1="20" y1="150" x2="180" y2="280" stroke="black" stroke-width="20"></line>
+</svg>
+]
+
+---
+
+class: center, left-heading
+
+# What are Facades? (visually)
+
+.img-overlay-wrap[
+<img src="https://gblobscdn.gitbook.com/assets%2F-L9CoGJCq3UCfKJ7RCUg%2F-Lqo8CEiTGbFfHN-MPem%2F-Lqo8EeI9WI8AjKSCgMo%2Fdiagram.png?alt=media">
+]
+
+---
+
+class: center, left-heading
+
+# What are Facades? (visually)
+
+.img-overlay-wrap[
+<img src="https://gblobscdn.gitbook.com/assets%2F-L9CoGJCq3UCfKJ7RCUg%2F-Lqo8CEiTGbFfHN-MPem%2F-Lqo8EeI9WI8AjKSCgMo%2Fdiagram.png?alt=media">
+<svg viewBox="0 0 500 300">
+<line x1="60" y1="220" x2="200" y2="40" stroke="black" stroke-width="20"></line>
+</svg>
+]
+
+---
+
 class: middle, center
 
 # What can Facades do for you?
@@ -127,10 +190,6 @@ class: middle, center
 # Using NgRx directly
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
-import { Observable } from '@angular/core';
-import { Book } from 'models';
-
 import { Store, select } from '@ngrx/store';
 import { getBook } from 'store/books/selectors';
 import { loadBook, addToCart } from 'store/books/actions';
@@ -156,29 +215,28 @@ export class BookDetailComponent implements OnInit {
 
 ---
 
-# Using Facades - Component
+# Using NgRx directly
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
-import { Observable } from '@angular/core';
-import { Book } from 'models';
-
-import { BooksFacade } from 'facades';
+*import { Store, select } from '@ngrx/store';
+*import { getBook } from 'store/books/selectors';
+*import { loadBook, addToCart } from 'store/books/actions';
 
 @Component(...)
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent implements OnChanges {
   @Input() isbn: string;
 
   book$: Observable<Book>;
 
-  constructor(private facade: BooksFacade) {}
+* constructor(private store: Store) {}
 
-  ngOnInit() {
-    this.book$ = this.facade.book$(this.isbn)
+  ngOnChanges() {
+*   this.store.dispatch(loadBook(this.isbn));
+*   this.book$ = this.store.pipe(select(getBook, { isbn: this.isbn }))
   }
 
   addToCart(quantity: number) {
-    this.facade.addToCart(this.isbn, quantity);
+*   this.store.dispatch(addToCart(this.isbn, quantity));
   }
 }
 ```
@@ -196,13 +254,40 @@ import { loadBook, addToCart } from "store/books/actions";
 export class BooksFacade {
   constructor(private store: Store) {}
 
+  /** stream for book with isbn */
   book$(isbn: string) {
     this.store.dispatch(loadBook(isbn));
     return this.store.pipe(select(getBook, { isbn }));
   }
 
+  /** trigger action addToCart */
   addToCart(isbn: string, quantity: number) {
     this.store.dispatch(addToCart(isbn, quantity));
+  }
+}
+```
+
+---
+
+# Using Facades - Component
+
+```typescript
+import { BooksFacade } from 'facades';
+
+@Component(...)
+export class BookDetailComponent implements OnChanges {
+  @Input() isbn: string;
+
+  book$: Observable<Book>;
+
+  constructor(private facade: BooksFacade) {}
+
+  ngOnChanges() {
+    this.book$ = this.facade.book$(this.isbn);
+  }
+
+  addToCart(quantity: number) {
+    this.facade.addToCart(this.isbn, quantity);
   }
 }
 ```
@@ -225,6 +310,8 @@ class: large
 
     👍 Move intermediate logic from Components into Facades
 
+    👍 Simple testing
+
 ---
 
 class: large
@@ -235,7 +322,29 @@ class: large
 
   - Development can be split into Component + State Management
 
-  - Refactorings don't impact Components
+--
+
+    👍 Parallelize development tasks
+
+    👍 Introduce State Management progressively
+
+    -> talk from Aliaksei Kuncevič "Progressive State Management with NGXS" @[ngLeipzig #34](https://www.meetup.com/Angular-Meetup-Leipzig/events/274182285/)
+
+---
+
+class: large
+
+# Advantages using Facades
+
+- Agnostic
+
+  - Refactoring doesn't impact Components
+
+--
+
+    👍 Restructure store as part of agile development w/o impacting Components
+
+    💥 Remember [ngrx action creators refactoring](https://medium.com/angular-in-depth/ngrx-action-creators-redesigned-d396960e46da)?
 
 ---
 
@@ -265,3 +374,11 @@ class: large
 class: middle, center
 
 <iframe width="700" height="500" src="https://www.youtube.com/embed/Hyvn9R4wcLc?controls=1&amp;start=0&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+class: middle, center
+
+# Thank You!
+
+## ❤️ 💬 ✉️
