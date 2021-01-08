@@ -1,5 +1,7 @@
 remarkConfig:
   highlightStyle: tomorrow-night-eighties
+  highlightLines: true
+  ratio: "16:9"
 css: |
   @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
   @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);

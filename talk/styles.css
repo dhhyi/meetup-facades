@@ -12,6 +12,11 @@ h3 {
 .remark-code,
 .remark-inline-code {
   font-family: "Ubuntu Mono";
+  font-size: 1.5vw;
+}
+
+.remark-code-line-highlighted {
+  background-color: rgb(136 136 82 / 46%);
 }
 
 .remark-slide-content {
@@ -25,13 +30,17 @@ h3 {
 }
 
 .big p,
-.big li::marker {
+.big li {
   font-size: xx-large;
 }
 
 .large p,
-.large li::marker {
-  font-size: larger;
+.large li {
+  font-size: x-large;
+}
+
+.left-heading h1 {
+  text-align: left !important;
 }
 
 .clean .remark-slide-number {
@@ -56,6 +65,25 @@ h3 {
 
 .w50 img {
   width: 49%;
+}
+
+.fit img {
+  height: 500px;
+}
+.img-overlay-wrap {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
+.img-overlay-wrap img {
+  /* <= optional, for responsiveness */
+  display: block;
+  height: 500px;
+}
+.img-overlay-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Two-column layout */
