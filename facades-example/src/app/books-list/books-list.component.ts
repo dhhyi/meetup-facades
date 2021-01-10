@@ -4,13 +4,10 @@ import { BooksFacade } from "../facades/books.facade";
 @Component({
   selector: "app-books-list",
   template: `
-    <ul>
-      <li *ngFor="let book of books$ | async">
-        <a [routerLink]="book.isbn">
-          <pre>{{ book | json }}</pre>
-        </a>
-      </li>
-    </ul>
+    <app-books-list-item
+      *ngFor="let book of books$ | async"
+      [isbn]="book.isbn"
+    ></app-books-list-item>
   `,
   styles: [],
 })
