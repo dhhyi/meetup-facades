@@ -472,7 +472,15 @@ class: big, center, middle
 
 # Live Demo
 
-[https://stackblitz.com/github/dhhyi/meetup-facades/tree/facades-example](https://stackblitz.com/github/dhhyi/meetup-facades/tree/facades-example?file=src%2Fapp%2Ffacades%2Fbooks.facade.ts)
+[facades-example @ .icon[![StackBlitz](https://developer.stackblitz.com/img/logo.svg)]](https://stackblitz.com/github/dhhyi/meetup-facades/tree/facades-example?file=src%2Fapp%2Ffacades%2Fbooks.facade.ts)
+
+---
+
+class: big, center, middle
+
+# Live Demo
+
+[context-facades-example @ .icon[![StackBlitz](https://developer.stackblitz.com/img/logo.svg)]](https://stackblitz.com/github/dhhyi/meetup-facades/tree/context-facades-example?file=src%2Fapp%2Ffacades%2Fbook-context.facade.ts)
 
 ---
 
