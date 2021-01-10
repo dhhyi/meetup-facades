@@ -72,6 +72,10 @@ h3 {
   height: 1.2em;
   vertical-align: middle;
 }
+h2 .icon img {
+  height: 0.8em;
+  vertical-align: middle;
+}
 
 a,
 a:visited {
@@ -136,7 +140,7 @@ blockquote p {
 blockquote:before {
   display: block;
   position: relative;
-  top: 30px;
+  top: 60px;
   color: #ccc;
   content: open-quote;
   font-size: 4em;

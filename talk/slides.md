@@ -26,9 +26,9 @@ class: big
 
 2. What can Facades do for you?
 
-3. Advantages using Facades?
+3. Advantages using Facades
 
-4. Disadvantages using Facades?
+4. Disadvantages using Facades
 
 5. Lessons Learned from a Project
 
@@ -72,13 +72,15 @@ class: big
 
 - Angular Services (`@Injectable`)
 
-- Globally available (`providedIn: 'root'`)
+- globally available (`providedIn: 'root'`)
 
 - provide API for View Layer
 
   - access data synchronously / asynchronously
 
   - trigger actions
+
+- delegates to State Management
 
 ---
 
@@ -405,6 +407,64 @@ class: big
 > We can solve any problem by introducing an extra level of indirection.
 
 → [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
+
+---
+
+class: middle, center
+
+# Lessons Learned from a Project
+
+---
+
+class: big
+
+## .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg)]
+
+- provide e-commerce solutions for running web shops
+
+  - customizable server implementation with REST API
+
+  - blue-print store for customization: [Intershop PWA](https://github.com/intershop/intershop-pwa)
+
+--
+
+- Customers / Partners
+
+  - B2C shops
+
+  - B2B shops
+
+---
+
+class: big
+
+## .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg) ![PWA](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Progressive_Web_Apps_Logo.svg/2880px-Progressive_Web_Apps_Logo.svg.png)]
+
+- General requirements
+
+  - Performance (Bundle Size, SEO)
+
+  - opt-in Features (Quoting, Wishlists, Approval, ...)
+
+  - Multiple Channels (Country, Language)
+
+---
+
+class: big
+
+## .icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg) ![PWA](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Progressive_Web_Apps_Logo.svg/2880px-Progressive_Web_Apps_Logo.svg.png)]
+
+- Customization requirements
+
+  - UX/UI (sometimes just styling, sometimes heavy customization)
+
+  - Shop logic mostly reused
+
+  - merge new features / bugfixes from upstream
+
+--
+
+→ Facades to the rescue!
 
 ---
 
