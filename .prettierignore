@@ -3,3 +3,4 @@
 .browserslistrc
 .gitignore
 .gitkeep
+dist/**/*.*

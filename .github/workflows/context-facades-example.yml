@@ -1,0 +1,22 @@
+name: Update context-facades-example Branch
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "context-facades-example/**"
+
+jobs:
+  deploy:
+    name: Update context-facades-example Branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: context-facades-example
+          FOLDER: context-facades-example
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
