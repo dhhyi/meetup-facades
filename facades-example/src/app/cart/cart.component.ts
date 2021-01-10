@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { BooksFacade } from "../facades/books.facade";
+import { CartService } from "./cart.service";
 
 @Component({
   selector: "app-cart",
@@ -19,7 +19,7 @@ import { BooksFacade } from "../facades/books.facade";
   styles: [],
 })
 export class CartComponent {
-  cart$ = this.facade.cart$;
+  cart$ = this.service.cart$;
 
-  constructor(private facade: BooksFacade) {}
+  constructor(private service: CartService) {}
 }
