@@ -472,7 +472,7 @@ class: big, center, middle
 
 # Live Demo
 
-[https://stackblitz.com/github/dhhyi/ngrx-data-views/tree/memoized-data-views](https://stackblitz.com/github/dhhyi/ngrx-data-views/tree/memoized-data-views?file=src%2Fapp%2Fstore%2Fbook-view%2Findex.ts)
+[https://stackblitz.com/github/dhhyi/meetup-facades/tree/facades-example](https://stackblitz.com/github/dhhyi/meetup-facades/tree/facades-example?file=src%2Fapp%2Ffacades%2Fbooks.facade.ts)
 
 ---
 
