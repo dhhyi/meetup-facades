@@ -1,5 +1,10 @@
 name: Deploy Slides
-on: [push]
+
+on:
+  push:
+    branches:
+      - "main"
+
 jobs:
   deploy-slides:
     runs-on: ubuntu-latest
