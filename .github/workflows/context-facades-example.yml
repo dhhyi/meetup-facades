@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Build
+        run: |
+          cd context-facades-example
+          npm i
+          npx ng build --aot
+
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
         env:
