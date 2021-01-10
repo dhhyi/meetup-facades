@@ -1,2 +1,5 @@
 *.ico
 .prettierignore
+.browserslistrc
+.gitignore
+.gitkeep
