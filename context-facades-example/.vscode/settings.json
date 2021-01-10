@@ -1,4 +1,6 @@
 {
   "editor.fontSize": 22,
-  "editor.lineHeight": 0
+  "editor.lineHeight": 0,
+  "editor.fontWeight": "normal",
+  "editor.fontFamily": "monospace"
 }
