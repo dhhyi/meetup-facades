@@ -5,6 +5,7 @@ on:
       - "main"
     paths:
       - "context-facades-example/**"
+      - ".github/workflows/context-facades-example.yml"
 
 jobs:
   deploy:
@@ -18,6 +19,7 @@ jobs:
           cd context-facades-example
           npm i
           npx ng build --aot
+          git clean -xdf
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
