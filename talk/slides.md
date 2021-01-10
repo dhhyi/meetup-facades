@@ -1,9 +1,20 @@
 class: center, middle, clean
 count: false
 
+.meetup-logo[
+![ngLeipzig](https://live.ngleipzig.de/assets/angular-leipzig-logo.png)
+
+  <h2>ngLeipzig #36</h2>
+]
+<br/>
+
 # Facades
 
 ## The best Layer of your Angular Application
+
+<br/>
+
+### Danilo Hoffmann
 
 ---
 
@@ -15,9 +26,9 @@ class: big
 
 2. What can Facades do for you?
 
-3. When to use Facades?
+3. Advantages using Facades?
 
-4. When **not** to use Facades?
+4. Disadvantages using Facades?
 
 5. Lessons Learned from a Project
 
@@ -55,17 +66,13 @@ class: middle, center
 
 ---
 
-class: large
+class: big
 
 # What are Facades? (technically)
 
-- Singletons
+- Angular Services (`@Injectable`)
 
-  - Angular Services (`@Injectable`)
-
-  - Globally available (`providedIn: 'root'`)
-
---
+- Globally available (`providedIn: 'root'`)
 
 - provide API for View Layer
 
@@ -75,7 +82,7 @@ class: large
 
 ---
 
-class: large
+class: big
 
 # What are Facades? (figuratively)
 
@@ -83,9 +90,9 @@ class: large
 
   - switches → trigger interactions
 
-  - displays → receive data (synchronously)
+  - displays → query data (synchronously)
 
-  - taps → receive data as stream (asynchronously)
+  - taps → receive data / notifications as stream (asynchronously)
 
 --
 
@@ -93,9 +100,9 @@ class: large
   - Light switch
   - Tap for water
   - Clock
-  - Alarm
+  - Alarm Clock
 
----
+<!-- ---
 
 class: large
 
@@ -123,6 +130,7 @@ export class BookFacade {
   }
 }
 ```
+ -->
 
 ---
 
@@ -143,7 +151,7 @@ class: center, left-heading
 .img-overlay-wrap[
 <img src="https://ngrx.io/generated/images/guide/store/state-management-lifecycle.png"/>
 <svg viewBox="0 0 500 300">
-<line x1="20" y1="150" x2="180" y2="280" stroke="black" stroke-width="20"></line>
+<line x1="50" y1="150" x2="170" y2="270" stroke="black" stroke-width="20"></line>
 </svg>
 ]
 
@@ -166,7 +174,7 @@ class: center, left-heading
 .img-overlay-wrap[
 <img src="https://gblobscdn.gitbook.com/assets%2F-L9CoGJCq3UCfKJ7RCUg%2F-Lqo8CEiTGbFfHN-MPem%2F-Lqo8EeI9WI8AjKSCgMo%2Fdiagram.png?alt=media">
 <svg viewBox="0 0 500 300">
-<line x1="60" y1="220" x2="200" y2="40" stroke="black" stroke-width="20"></line>
+<line x1="60" y1="250" x2="200" y2="100" stroke="black" stroke-width="20"></line>
 </svg>
 ]
 
@@ -294,33 +302,33 @@ export class BookDetailComponent implements OnChanges {
 
 ---
 
-class: large
+class: middle, center
+
+# 👍 Advantages using Facades
+
+---
+
+class: big
 
 # Advantages using Facades
 
-- Cleanly Decoupled
+- Components use Angular, RxJS and Facades
 
-  - Components use Angular, RxJS and Facades
-
-  - State management behind Facades
+- State management behind Facades
 
 --
 
     👍 Tackle knowledge gaps
 
-    👍 Move intermediate logic from Components into Facades
-
     👍 Simple testing
 
 ---
 
-class: large
+class: big
 
 # Advantages using Facades
 
-- Agnostic
-
-  - Development can be split into Component + State Management
+- Development can be split into Component + State Management
 
 --
 
@@ -328,23 +336,75 @@ class: large
 
     👍 Introduce State Management progressively
 
-    -> talk from Aliaksei Kuncevič "Progressive State Management with NGXS" @[ngLeipzig #34](https://www.meetup.com/Angular-Meetup-Leipzig/events/274182285/)
+    → 📺 [Progressive State Management with NGXS @ngLeipzig #34](https://www.meetup.com/Angular-Meetup-Leipzig/events/274182285/) by Aliaksei Kuncevič
 
 ---
 
-class: large
+class: big
 
 # Advantages using Facades
 
-- Agnostic
-
-  - Refactoring doesn't impact Components
+- Refactoring doesn't impact Components
 
 --
 
     👍 Restructure store as part of agile development w/o impacting Components
 
-    💥 Remember [ngrx action creators refactoring](https://medium.com/angular-in-depth/ngrx-action-creators-redesigned-d396960e46da)?
+    💥 Remember ngrx action creators refactoring?
+
+    📜 [NgRx: Action Creators redesigned](https://medium.com/angular-in-depth/ngrx-action-creators-redesigned-d396960e46da) by Alex Okrushko
+
+    `new AddToCart(...)` → `addToCart(...)`
+
+---
+
+class: big
+
+# Advantages using Facades
+
+- Facades answer some architectural questions
+
+--
+
+    👍 Move intermediate logic from Components into Facades
+
+    👍 Solves the data loading dilemma
+
+    → 📜 [Where to initiate data load in NgRx](https://dev.to/jonrimmer/where-to-initiate-data-load-in-ngrx-358l#) by Jon Rimmer
+
+    Application init / Routing / Component init / User action
+
+---
+
+class: middle, center
+
+# 👎 Disadvantages using Facades
+
+---
+
+class: big
+
+# Disadvantages using Facades
+
+- Facades don't support strict action hygiene
+
+  - Introduce individual actions for every source
+
+  → 📺 [Good Action Hygiene with NgRx](https://www.youtube.com/watch?v=JmnsEvoy-gY) by Mike Ryan
+
+---
+
+class: big
+
+# Disadvantages using Facades
+
+- Introduces _another_ layer into our application
+
+--
+
+> We can solve any problem by introducing an extra level of indirection.
+
+→ [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
 
 ---
 
@@ -383,6 +443,6 @@ class: middle, center
 
 ## ⭐ ❤️ 💬 ✉️
 
-### slides available at
+### slides and examples available at
 
 ## https://github.com/dhhyi/meetup-facades

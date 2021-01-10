@@ -12,7 +12,7 @@ h3 {
 .remark-code,
 .remark-inline-code {
   font-family: "Ubuntu Mono";
-  font-size: 1.5vw;
+  font-size: x-large;
 }
 
 .remark-code-line-highlighted {
@@ -30,12 +30,14 @@ h3 {
 }
 
 .big p,
-.big li {
+.big li,
+.big remark-inline-code {
   font-size: xx-large;
 }
 
 .large p,
-.large li {
+.large li,
+.large remark-inline-code {
   font-size: x-large;
 }
 
@@ -50,6 +52,20 @@ h3 {
 .avartar > img {
   border-radius: 50%;
   float: right;
+}
+
+.meetup-logo img {
+  width: 5%;
+  display: inline;
+  padding-right: 10px;
+}
+.meetup-logo p {
+  display: inline;
+  vertical-align: middle;
+}
+.meetup-logo h2 {
+  display: inline;
+  vertical-align: middle;
 }
 
 .icon img {
@@ -109,4 +125,22 @@ a:visited {
   width: 75%;
   float: right;
   padding-top: 1em;
+}
+
+blockquote p {
+  width: 70%;
+  font-style: italic;
+  position: relative;
+  left: 50px;
+}
+blockquote:before {
+  display: block;
+  position: relative;
+  top: 30px;
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
 }
