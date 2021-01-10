@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { BooksFacade } from "../facades/books.facade";
 import { map, switchMap } from "rxjs/operators";

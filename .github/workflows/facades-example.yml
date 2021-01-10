@@ -2,7 +2,9 @@ name: Update facades-example Branch
 on:
   push:
     branches:
-      - main
+      - "main"
+    paths:
+      - "facades-example/**"
 
 jobs:
   deploy:

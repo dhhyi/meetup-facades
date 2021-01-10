@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { map } from "rxjs/operators";
+import { Component } from "@angular/core";
 import { BooksFacade } from "../facades/books.facade";
 
 @Component({
