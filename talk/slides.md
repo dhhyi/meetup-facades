@@ -205,14 +205,14 @@ import { getBook } from 'store/books/selectors';
 import { loadBook, addToCart } from 'store/books/actions';
 
 @Component(...)
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent implements OnChanges {
   @Input() isbn: string;
 
   book$: Observable<Book>;
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
+  ngOnChanges() {
     this.store.dispatch(loadBook(this.isbn));
     this.book$ = this.store.pipe(select(getBook, { isbn: this.isbn }))
   }
