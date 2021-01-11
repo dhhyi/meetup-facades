@@ -22,7 +22,7 @@ import { BookContextFacade } from "../facades/book-context.facade";
     `
       .book-line-item {
         margin: 10px;
-        width: 500px;
+        width: 350px;
         background-color: azure;
       }
       .mat-card-actions {

@@ -12,10 +12,15 @@ import { BookContextFacade } from "../facades/book-context.facade";
         <h1>{{ book.title }}</h1>
         <h2>{{ book.author }}</h2>
         <h3>{{ book.description }}</h3>
+
         <app-add-to-cart-quantity></app-add-to-cart-quantity>
+
         <span>x</span>
+
         <app-add-to-cart-button></app-add-to-cart-button>
+
         <span>=</span>
+
         <app-book-summed-up-price></app-book-summed-up-price>
       </ng-container>
     </div>

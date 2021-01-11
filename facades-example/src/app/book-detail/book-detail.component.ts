@@ -12,15 +12,20 @@ import { map, switchMap } from "rxjs/operators";
         <h1>{{ book.title }}</h1>
         <h2>{{ book.author }}</h2>
         <h3>{{ book.description }}</h3>
+
         <app-add-to-cart-quantity
           [(quantity)]="quantity"
         ></app-add-to-cart-quantity>
+
         <span>x</span>
+
         <app-add-to-cart-button
           [isbn]="book.isbn"
           [quantity]="quantity"
         ></app-add-to-cart-button>
+
         <span>=</span>
+
         <app-book-summed-up-price
           [isbn]="book.isbn"
           [quantity]="quantity"
