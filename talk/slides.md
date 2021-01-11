@@ -68,24 +68,6 @@ class: middle, center
 
 class: big
 
-# What are Facades? (technically)
-
-- Angular Services (`@Injectable`)
-
-- globally available (`providedIn: 'root'`)
-
-- provide API for View Layer
-
-  - access data synchronously / asynchronously
-
-  - trigger actions
-
-- delegates to State Management
-
----
-
-class: big
-
 # What are Facades? (figuratively)
 
 - Walls providing switches, displays, taps
@@ -103,6 +85,24 @@ class: big
   - Tap for water
   - Clock
   - Alarm Clock
+
+---
+
+class: big
+
+# What are Facades? (technically)
+
+- Angular Services (`@Injectable`)
+
+- globally available (`providedIn: 'root'`)
+
+- provide API for View Layer
+
+  - access data synchronously / asynchronously
+
+  - trigger actions
+
+- delegates to State Management
 
 <!-- ---
 
@@ -346,11 +346,11 @@ class: big
 
 # Advantages using Facades
 
-- Refactoring doesn't impact Components
+- State Management refactoring doesn't impact Components
 
 --
 
-    👍 Restructure store as part of agile development w/o impacting Components
+    👍 Restructure store as part of agile development
 
     💥 Remember ngrx action creators refactoring?
 
@@ -367,8 +367,6 @@ class: big
 - Facades answer some architectural questions
 
 --
-
-    👍 Move intermediate logic from Components into Facades
 
     👍 Solves the data loading dilemma
 
@@ -390,9 +388,11 @@ class: big
 
 - Facades don't support strict action hygiene
 
-  - Introduce individual actions for every source
+--
 
-  → 📺 [Good Action Hygiene with NgRx](https://www.youtube.com/watch?v=JmnsEvoy-gY) by Mike Ryan
+(Action hygiene: Introduce individual actions for every source)
+
+→ 📺 [Good Action Hygiene with NgRx](https://www.youtube.com/watch?v=JmnsEvoy-gY) by Mike Ryan
 
 ---
 
@@ -478,24 +478,85 @@ class: big, center, middle
 
 class: big, center, middle
 
+# Introducing Context-Facades
+
+---
+
+class: big
+
+# What are Contexts? (conceptually)
+
+> a frame that surrounds the event and provides resources for its appropriate interpretation
+
+.right[[[Wikipedia]](https://en.wikipedia.org/wiki/Context_(language_use%29)]
+
+--
+
+- Contexts are everywhere
+
+- Contexts imply data / rules
+
+- Everybody uses context (especially UX/UI designers)
+
+---
+
+class: big, center, middle
+
+# Complex Context Example
+
+[.icon[![Intershop](https://upload.wikimedia.org/wikipedia/commons/9/9c/Intershop-Communications-AG.svg) ![PWA](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Progressive_Web_Apps_Logo.svg/2880px-Progressive_Web_Apps_Logo.svg.png)]](https://intershoppwa.azurewebsites.net/Action-Cameras/Sony-FDR-X1000V-Set-skuM4548736000919-catCameras-Camcorders.832)
+
+---
+
+class: big
+
+# How to introduce Contexts?
+
+- Angular Service (`@Injectable`)
+
+- Stores data relevant to the context
+
+  - ISBN
+  - quantity
+
+- provided wherever needed ([ElementInjector](https://angular.io/guide/hierarchical-dependency-injection#elementinjector))
+
+  - provide via `@Component`
+  - provide via `@Directive`
+
+- delegates to 'global' Facade
+
+---
+
+class: big, center, middle
+
 # Live Demo
 
 [context-facades-example @ .icon[![StackBlitz](https://developer.stackblitz.com/img/logo.svg)]](https://stackblitz.com/github/dhhyi/meetup-facades/tree/context-facades-example?file=src%2Fapp%2Ffacades%2Fbook-context.facade.ts)
 
 ---
 
-class: large
+class: big
 
-# Agnostic Interface
+# Agnostic & Context
 
-.w50[![schalter](https://www.capital.de/wp-content/uploads/2014/03/bankschalter_dpa-620x349.png)]
-.w50[![atm](https://avant-garde.com.cy/sites/default/files/styles/media_image/public/2020-08/atm-2.jpg?h=c46fd5b3&itok=36Oh0HWq)]
+--
 
-- provide credentials to bank account
+- Light Switch
+  - Do you really care about the wiring in your apartment?
 
-- extract money
+--
 
-- get feedback about balance
+- Language
+  - "I like it!"
+  - particle は in Japanese
+
+--
+
+- ATM vs. Bank Teller
+  - provide credentials to bank account
+  - get feedback about balance
+  - extract money
 
 ---
 
