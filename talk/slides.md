@@ -534,6 +534,12 @@ class: big, center, middle
 
 [context-facades-example @ .icon[![StackBlitz](https://developer.stackblitz.com/img/logo.svg)]](https://stackblitz.com/github/dhhyi/meetup-facades/tree/context-facades-example?file=src%2Fapp%2Ffacades%2Fbook-context.facade.ts)
 
+<br/>
+
+Library for implementation: [@rx-angular/state](https://github.com/rx-angular/rx-angular/blob/master/libs/state/README.md)
+
+📺 [Reactive Ephemeral State](https://www.youtube.com/watch?v=QuoPQX_rBa4) by Michael Hladky
+
 ---
 
 class: big
