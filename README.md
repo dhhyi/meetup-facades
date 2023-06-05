@@ -4,6 +4,8 @@ Slides: https://dhhyi.github.io/meetup-facades
 
 Created using [remark](https://github.com/gnab/remark/wiki).
 
+Talk: https://www.youtube.com/watch?v=I14r3joLu9A
+
 ## Abstract
 
 Facades are services in Angular applications decoupling the view layer from application logic.
